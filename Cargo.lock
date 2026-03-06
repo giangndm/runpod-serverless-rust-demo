@@ -859,6 +859,7 @@ dependencies = [
  "reqwest",
  "runpod-sdk",
  "serde",
+ "serde_json",
  "tokio",
 ]
 
