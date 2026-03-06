@@ -856,7 +856,9 @@ name = "runpod-serverless-rust"
 version = "0.1.0"
 dependencies = [
  "axum",
+ "reqwest",
  "runpod-sdk",
+ "serde",
  "tokio",
 ]
 
