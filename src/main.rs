@@ -1,11 +1,13 @@
 use std::{env, net::SocketAddr};
 
 use axum::{
+    Json,
     Router,
     extract::ws::{Message, WebSocket, WebSocketUpgrade},
     response::{Html, IntoResponse},
     routing::get,
 };
+use serde_json::json;
 use tokio::net::TcpListener;
 
 #[tokio::main]
@@ -28,8 +30,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-async fn ping() -> &'static str {
-    "ok"
+async fn ping() -> Json<serde_json::Value> {
+    Json(json!({ "status": "healthy" }))
 }
 
 async fn ws_handler(ws: WebSocketUpgrade) -> impl IntoResponse {
